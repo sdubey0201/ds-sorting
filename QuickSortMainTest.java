@@ -14,7 +14,7 @@ public class QuickSortMainTest {
         if (low<high) {
             int position = partition(array, low, high);
             quickSort(array, low, position - 1);
-            quickSort(array, position, high);
+            quickSort(array, position+1, high);
 
         }
 
