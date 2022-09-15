@@ -8,11 +8,15 @@ public class MergeSortArrayTestMain {
 //        int [] array2 = {3,11};
 //        int [] array1 = {2, 5, 9};
 //        int [] array2 = {12, 19, 23};
-        int [] array1 = {3, 9, 10, 18, 23};
-        int [] array2 = {5, 12, 15, 20, 21, 25};
-//        int [] array1 = {2, 20};
-//        int [] array2 = {5, 9, 14, 16, 19};
-        System.out.println(Arrays.toString(getMergeArray(array1,array2)));
+//        int [] array1 = {3, 9, 10, 18, 23};
+//        int [] array2 = {5, 12, 15, 20, 21, 25};
+        int [] array1 = {2, 20};
+        int [] array2 = {5, 9, 14, 16, 19};
+//        int [] array1 = {1, 5};
+//        int [] array2 = {4, 6, 7};
+//        int [] array1 = {1, 3, 5, 7};
+//        int [] array2 = {2, 4, 6, 8};
+        System.out.println(Arrays.toString(getMergeArray1(array1,array2)));
 
     }
 
@@ -63,6 +67,26 @@ public class MergeSortArrayTestMain {
             return newArray;
             }
 
+        }
+        public static int [] getMergeArray1(int [] array1,int [] array2){
+         int newArray [] = new int[array1.length+array2.length];
+         for (int i =0;i<array1.length;i++)
+             newArray[i] =array1[i];
+         int l1 = array1.length;
+         for (int i = 0;i<array2.length;i++){
+             int temp = array2[i];
+            int  j = l1-1;
+            for (;j>=0;j--){
+                if (newArray[j]>temp){
+                    newArray[j+1] = newArray[j];
+                }else {
+                    break;
+                }
+            }
+            newArray[j+1] = temp;
+            l1++;
+         }
+         return newArray;
         }
 
 
